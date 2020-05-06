@@ -1,28 +1,30 @@
-package com.venko.test.regex;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package co.venko.test.regex;
 
 import com.venko.test.regex.utils.Reader;
 import com.venko.test.regex.utils.RegexSolver;
 import com.venko.test.regex.utils.Respuesta;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
-@SpringBootApplication
-public class RegexApplication {
-
-	public static void main(String[] args) throws IOException {
-		SpringApplication.run(RegexApplication.class, args);
-		String filename = "assets/coronavirus.html";
+/**
+ *
+ * @author kolarte
+ */
+public class App {
+    
+    	public static void main(String[] args) throws IOException {
+        String filename = "assets/coronavirus.html";
 		String finalFile = "assets/test.txt";
 		String finalFile2 = "assets/response.txt";
 	  	String fileResult =Reader.textReader(filename);
 
-	 	List<Respuesta> respuestaList =	RegexSolver.regexSolver(fileResult);
+	 	         List<Respuesta> respuestaList = RegexSolver.regexSolver(fileResult);
 
 	 	respuestaList.sort(new Comparator<Respuesta>() {
 			@Override
@@ -57,5 +59,7 @@ public class RegexApplication {
 
 
 	}
+    }
+		
+    
 
-}
